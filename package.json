@@ -1,7 +1,7 @@
 {
   "name": "vdom",
-  "version": "0.1.0",
-  "description": "A DOM patch algorithm for vtree",
+  "version": "0.0.1",
+  "description": "A DOM create and patch algorithm for vtree",
   "keywords": [],
   "author": "Matt Esch <matt@mattesch.info>",
   "repository": "git://github.com/Matt Esch/vdom.git",
