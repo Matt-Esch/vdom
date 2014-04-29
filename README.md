@@ -6,7 +6,7 @@ A DOM render and patch algorithm for vtree
 
 Given a `vtree` structure representing a DOM structure, we would like to either
 render the structure to a DOM node using `create-element` or we would like to
-update the DOM with the results of `vtree/patch` by patching the DOM
+update the DOM with the results of `vdom/patch` by patching the DOM
 
 This module is currently re-exporting the `vdom` from `virtual-dom`, but the
 aim is to eventually make this a standalone module and have `virtual-dom`
@@ -35,7 +35,7 @@ patch(rootNode, patches)
 
 ## Installation
 
-`npm install vtree`
+`npm install vdom`
 
 ## Contributors
 
