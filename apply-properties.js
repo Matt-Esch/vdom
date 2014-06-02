@@ -1,10 +1,5 @@
 var isObject = require("is-object")
-
 var isHook = require("vtree/is-vhook")
-
-var stringProps = {
-
-}
 
 module.exports = applyProperties
 
