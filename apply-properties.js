@@ -25,10 +25,17 @@ function applyProperties(node, props, previous) {
 }
 
 function removeProperty(node, props, previous, propName) {
-    if (propName === "style") {
-        var previousStyle = previous[propName]
-        for (var i in previousStyle) {
-            node.style[i] = ""
+    if (previous) {
+        var previousValue = previous[propName]
+
+        if (!isHook(previousValue)) {
+            if (propName === "style") {
+                for (var i in previousValue) {
+                    node.style[i] = ""
+                }
+            } else {
+                node[propName] = null
+            }
         }
     } else {
         node[propName] = null
@@ -36,6 +43,12 @@ function removeProperty(node, props, previous, propName) {
 }
 
 function patchObject(node, props, previous, propName, propValue) {
+    if(previous && isObject(previous[propName]) &&
+        getPrototype(previous[propName]) !== getPrototype(propValue)) {
+        node[propName] = previousValue
+        return
+    }
+
     if (!isObject(node[propName])) {
         node[propName] = {}
     }
@@ -45,5 +58,15 @@ function patchObject(node, props, previous, propName, propValue) {
     for (var k in propValue) {
         var value = propValue[k]
         node[propName][k] = (value === undefined) ? replacer : value
+    }
+}
+
+function getPrototype(value) {
+    if (Object.getPrototypeOf) {
+        return Object.getPrototypeOf(value)
+    } else if (value.__proto__) {
+        return value.__proto__
+    } else if (value.constructor) {
+        return value.constructor.prototype
     }
 }
