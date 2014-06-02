@@ -28,7 +28,7 @@ function applyPatch(vpatch, domNode, renderOptions) {
             reorderChildren(domNode, patch)
             return domNode
         case VPatch.PROPS:
-            applyProperties(domNode, patch, vNode.propeties)
+            applyProperties(domNode, patch, vNode.properties)
             return domNode
         default:
             return domNode
