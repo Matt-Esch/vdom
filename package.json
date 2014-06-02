@@ -17,9 +17,10 @@
     "email": "matt@mattesch.info"
   },
   "dependencies": {
-    "x-is-array": "^0.1.0",
-    "global": "^4.2.1",
-    "is-object": "^0.1.2"
+    "global": "4.2.1",
+    "is-object": "0.1.2",
+    "x-is-array": "0.1.0",
+    "vtree": "0.0.3"
   },
   "devDependencies": {
     "tape": "^2.13.1",
