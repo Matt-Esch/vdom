@@ -2,6 +2,10 @@ var isObject = require("is-object")
 
 var isHook = require("vtree/is-vhook")
 
+var stringProps = {
+
+}
+
 module.exports = applyProperties
 
 function applyProperties(node, props, previous) {
@@ -33,6 +37,8 @@ function removeProperty(node, props, previous, propName) {
                 for (var i in previousValue) {
                     node.style[i] = ""
                 }
+            } else if (typeof previousValue === "string") {
+                node[propName] = ""
             } else {
                 node[propName] = null
             }
