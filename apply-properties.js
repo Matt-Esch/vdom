@@ -38,8 +38,6 @@ function removeProperty(node, props, previous, propName) {
                 node[propName] = null
             }
         }
-    } else {
-        node[propName] = null
     }
 }
 
