@@ -125,7 +125,7 @@ function reorderChildren(domNode, bIndex) {
 
     for (i = 0; i < len; i++) {
         var move = bIndex[i]
-        if (move !== undefined) {
+        if (move !== undefined && move !== i) {
             var node = children[move]
             domNode.removeChild(node)
             domNode.insertBefore(node, childNodes[i])
