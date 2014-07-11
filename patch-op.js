@@ -118,13 +118,7 @@ function reorderChildren(domNode, bIndex) {
     var childNodes = domNode.childNodes
     var len = childNodes.length
     var i
-    var reverseIndex = {}
-
-    for (i in bIndex) {
-        if (i !== 'removes') {
-            reverseIndex[bIndex[i]] = i
-        }
-    }
+    var reverseIndex = bIndex.reverse
 
     for (i = 0; i < len; i++) {
         children.push(domNode.childNodes[i])
