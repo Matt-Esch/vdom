@@ -5,6 +5,7 @@ var applyProperties = require("./apply-properties")
 var isVNode = require("vtree/is-vnode")
 var isVText = require("vtree/is-vtext")
 var isWidget = require("vtree/is-widget")
+var handleThunk = require("vtree/handle-thunk")
 
 module.exports = createElement
 
@@ -12,6 +13,8 @@ function createElement(vnode, opts) {
     var doc = opts ? opts.document || document : document
     var warn = opts ? opts.warn : null
 
+    var vnode = handleThunk(vnode).a
+    
     if (isWidget(vnode)) {
         return vnode.init()
     } else if (isVText(vnode)) {
