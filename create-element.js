@@ -13,8 +13,8 @@ function createElement(vnode, opts) {
     var doc = opts ? opts.document || document : document
     var warn = opts ? opts.warn : null
 
-    var vnode = handleThunk(vnode).a
-    
+    vnode = handleThunk(vnode).a
+
     if (isWidget(vnode)) {
         return vnode.init()
     } else if (isVText(vnode)) {
