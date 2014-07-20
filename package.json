@@ -4,16 +4,16 @@
   "description": "A DOM create and patch algorithm for vtree",
   "keywords": [],
   "author": "Matt Esch <matt@mattesch.info>",
-  "repository": "git://github.com/Matt Esch/vdom.git",
+  "repository": "git://github.com/Matt-Esch/vdom.git",
   "main": "index",
-  "homepage": "https://github.com/Matt Esch/vdom",
+  "homepage": "https://github.com/Matt-Esch/vdom",
   "contributors": [
     {
       "name": "Matt Esch"
     }
   ],
   "bugs": {
-    "url": "https://github.com/Matt Esch/vdom/issues",
+    "url": "https://github.com/Matt-Esch/vdom/issues",
     "email": "matt@mattesch.info"
   },
   "dependencies": {
@@ -29,7 +29,7 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://github.com/Matt Esch/vdom/raw/master/LICENSE"
+      "url": "http://github.com/Matt-Esch/vdom/raw/master/LICENSE"
     }
   ],
   "scripts": {
