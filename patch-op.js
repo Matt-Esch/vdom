@@ -30,6 +30,9 @@ function applyPatch(vpatch, domNode, renderOptions) {
         case VPatch.PROPS:
             applyProperties(domNode, patch, vNode.properties)
             return domNode
+        case VPatch.THUNK:
+            return replaceRoot(domNode,
+                renderOptions.patch(domNode, patch, renderOptions))
         default:
             return domNode
     }
@@ -153,4 +156,13 @@ function reorderChildren(domNode, bIndex) {
             insertOffset++
         }
     }
+}
+
+function replaceRoot(oldRoot, newRoot) {
+    if (oldRoot && newRoot && oldRoot !== newRoot && oldRoot.parentNode) {
+        console.log(oldRoot)
+        oldRoot.parentNode.replaceChild(newRoot, oldRoot)
+    }
+
+    return newRoot;
 }
