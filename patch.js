@@ -3,10 +3,11 @@ var isArray = require("x-is-array")
 
 var domIndex = require("./dom-index")
 var patchOp = require("./patch-op")
+var renderOptions = { patch: patch }
 
 module.exports = patch
 
-function patch(rootNode, patches) {
+function patch(rootNode, patches, renderOptions) {
     var indices = patchIndices(patches)
 
     if (indices.length === 0) {
@@ -15,11 +16,11 @@ function patch(rootNode, patches) {
 
     var index = domIndex(rootNode, patches.a, indices)
     var ownerDocument = rootNode.ownerDocument
-    var renderOptions
 
-    if (ownerDocument !== document) {
-        renderOptions = {
-            document: ownerDocument
+    if (!renderOptions) {
+        renderOptions = { patch: patch }
+        if (ownerDocument !== document) {
+            renderOptions.document = ownerDocument
         }
     }
 
