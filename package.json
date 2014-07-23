@@ -1,6 +1,6 @@
 {
   "name": "vdom",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "A DOM create and patch algorithm for vtree",
   "keywords": [],
   "author": "Matt Esch <matt@mattesch.info>",
