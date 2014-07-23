@@ -3,11 +3,13 @@ var isArray = require("x-is-array")
 
 var domIndex = require("./dom-index")
 var patchOp = require("./patch-op")
-var renderOptions = { patch: patch }
-
 module.exports = patch
 
-function patch(rootNode, patches, renderOptions) {
+function patch(rootNode, patches) {
+    return patchRecursive(rootNode, patches)
+}
+
+function patchRecursive(rootNode, patches, renderOptions) {
     var indices = patchIndices(patches)
 
     if (indices.length === 0) {
@@ -18,7 +20,7 @@ function patch(rootNode, patches, renderOptions) {
     var ownerDocument = rootNode.ownerDocument
 
     if (!renderOptions) {
-        renderOptions = { patch: patch }
+        renderOptions = { patch: patchRecursive }
         if (ownerDocument !== document) {
             renderOptions.document = ownerDocument
         }
