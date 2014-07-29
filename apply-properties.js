@@ -54,7 +54,7 @@ function patchObject(node, props, previous, propName, propValue) {
             var attrValue = propValue[attrName]
 
             if (attrValue === "undefined") {
-                node.removeAttribute()
+                node.removeAttribute(attrName)
             } else {
                 node.setAttribute(attrName, attrValue)
             }
