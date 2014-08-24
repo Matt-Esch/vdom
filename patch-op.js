@@ -140,7 +140,7 @@ function reorderChildren(domNode, bIndex) {
             }
 
             node = children[move]
-            insertNode = childNodes[i + insertOffset]
+            insertNode = childNodes[i + insertOffset] || null
             if (node !== insertNode) {
                 domNode.insertBefore(node, insertNode)
             }
