@@ -19,8 +19,8 @@
   "dependencies": {
     "global": "4.2.1",
     "is-object": "0.1.2",
-    "x-is-array": "0.1.0",
-    "vtree": "0.0.19"
+    "vtree": "0.0.20",
+    "x-is-array": "0.1.0"
   },
   "devDependencies": {
     "tape": "^2.13.1",
