@@ -77,7 +77,11 @@ function patchObject(node, props, previous, propName, propValue) {
 
     for (var k in propValue) {
         var value = propValue[k]
-        node[propName][k] = (value === undefined) ? replacer : value
+        if (propName === 'dataset' && value === undefined) {
+            delete node[propName][k]
+        } else {
+            node[propName][k] = (value === undefined) ? replacer : value
+        }
     }
 }
 
