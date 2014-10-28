@@ -1,5 +1,3 @@
-var document = require("global/document")
-
 var applyProperties = require("./apply-properties")
 
 var isVNode = require("vtree/is-vnode")
@@ -10,7 +8,7 @@ var handleThunk = require("vtree/handle-thunk")
 module.exports = createElement
 
 function createElement(vnode, opts) {
-    var doc = opts ? opts.document || document : document
+    var doc = opts.document
     var warn = opts ? opts.warn : null
 
     vnode = handleThunk(vnode).a

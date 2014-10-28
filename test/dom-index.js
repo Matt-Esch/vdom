@@ -2,6 +2,7 @@ var test = require("tape")
 var VNode = require("vtree/vnode")
 var VText = require("vtree/vtext")
 var diff = require("vtree/diff")
+var document = require("global/document")
 
 var createElement = require("../create-element")
 var patch = require("../patch")
@@ -25,7 +26,7 @@ test("indexing over thunk root", function (assert) {
         }
     }
 
-    var root = createElement(leftThunk)
+    var root = createElement(leftThunk, { document: document })
     var patches = diff(leftThunk, rightThunk)
     var newRoot = patch(root, patches)
 
@@ -68,7 +69,7 @@ test("indexing over thunk child", function (assert) {
         new VText("test")
     ])
 
-    var root = createElement(leftNode)
+    var root = createElement(leftNode, { document: document })
     var patches = diff(leftNode, rightNode)
     patch(root, patches)
     assert.equal(root.childNodes[2].childNodes[0].data, "Right")
