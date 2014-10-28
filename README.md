@@ -26,7 +26,7 @@ var leftNode = new VNode("div")
 var rightNode = new VNode("text")
 
 // Render the left node to a DOM node
-var rootNode = createElement(leftNode)
+var rootNode = createElement(leftNode, { document: document })
 document.body.appendChild(rootNode)
 
 // Update the DOM with the results of a diff
