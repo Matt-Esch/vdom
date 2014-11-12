@@ -17,13 +17,13 @@
     "email": "matt@mattesch.info"
   },
   "dependencies": {
-    "global": "4.2.1",
+    "global": "^4.3.0",
     "is-object": "0.1.2",
     "vtree": "0.0.21",
     "x-is-array": "0.1.0"
   },
   "devDependencies": {
-    "tape": "^2.13.1",
+    "tape": "^3.0.3",
     "virtual-dom": "0.0.10"
   },
   "licenses": [
