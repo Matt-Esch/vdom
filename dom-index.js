@@ -3,6 +3,8 @@
 // the in-order tree indexing to eliminate recursion down certain branches.
 // We only recurse into a DOM node if we know that it contains a child of
 // interest.
+var isVNode = require('vtree/is-vnode')
+var isThunk = require('vtree/is-thunk')
 
 var noChild = {}
 
@@ -36,7 +38,15 @@ function recurse(rootNode, tree, indices, nodes, rootIndex) {
                 rootIndex += 1
 
                 var vChild = vChildren[i] || noChild
-                var nextIndex = rootIndex + (vChild.count || 0)
+                var nextIndex = rootIndex;
+
+                if (isThunk(vChild)) {
+                    vChild = vChild.vnode
+                }
+
+                if (isVNode(vChild) && vChild.count) {
+                    nextIndex += vChild.count
+                }
 
                 // skip recursion down the tree if there are no nodes down here
                 if (indexInRange(indices, rootIndex, nextIndex)) {
