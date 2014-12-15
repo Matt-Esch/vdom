@@ -2,6 +2,8 @@
 
 A DOM render and patch algorithm for vtree
 
+Please note that this now lives under https://github.com/Matt-Esch/virtual-dom and all related issues shoud be opened there. This repository will eventually become a build artifact of `virtual-dom` for developers with an advanced usage pattern.
+
 ## Motivation
 
 Given a `vtree` structure representing a DOM structure, we would like to either
