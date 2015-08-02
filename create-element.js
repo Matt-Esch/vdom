@@ -27,7 +27,7 @@ function createElement(vnode, opts) {
     }
 
     var node = (vnode.namespace === null) ?
-        doc.createElement(vnode.tagName) :
+        doc.createElement(vnode.tagName, vnode.properties.is) :
         doc.createElementNS(vnode.namespace, vnode.tagName)
 
     var props = vnode.properties
